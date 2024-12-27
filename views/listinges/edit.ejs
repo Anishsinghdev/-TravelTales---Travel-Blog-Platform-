@@ -1,0 +1,81 @@
+<% layout("/layout/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-md-8 offset-2">
+    <form method="post" action="/listing/<%= listingitem.id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+
+        <div> 
+            <label for="title" class="form-label"> Title</label>
+            <input type="text" name="listing[title]" value="<%= listingitem.title %>" class="form-control" required>
+            <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                please enter valid Title
+              </div>
+        </div>
+
+        <div>
+        <label for="description" class="form-label"> description</label>
+         <textarea name="listing[description]" id="" cols="30" rows="10" class="form-control" required><%=listingitem.description%></textarea>
+         <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div class="invalid-feedback">
+            please enter valid Description
+          </div>
+        </div>
+
+        <div class="mb-3">
+          Original Image Listing <br>
+          <img src="<%= originalimageurl %>" alt="">
+        </div>
+
+        <div>
+            <label for="image" class="form-label">Upload new image</label>
+       <input type="file" name="listing[image]" value="<%= listingitem.image.url %>" class="form-control"> 
+    </div>
+
+    <div class="row">
+
+    <div class="col-md-4">
+        <label for="price" class="form-label">price</label>
+        <input type="number" name="listing[price]" id="" value="<%= listingitem.price %>" class="form-control" required>
+        <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div class="invalid-feedback">
+            please enter valid Price
+          </div>
+    </div>
+
+    <div class="col-md-8">
+        <label for="location" class="form-label" >location</label>
+        <input type="location" name="listing[location]" id="" value="<%= listingitem.location %>" class="form-control" required>
+        <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div class="invalid-feedback">
+            please enter valid Location
+          </div>
+    </div>
+</div>
+        
+    <div>
+        <label for="country" class="form-label">country</label>
+        <input type="text" name="listing[country]" id="" value="<%= listingitem.country %>" class="form-control" required>
+        <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div class="invalid-feedback">
+            please enter valid Country
+          </div>
+    </div>
+      
+ 
+        <button class="btn-primary btn">submit</button>
+ 
+     </form>
+    </div>
+    </div>
+</body>
