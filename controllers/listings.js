@@ -15,7 +15,7 @@ module.exports.showlistings = async (req,res)=>{
         req.flash("error", "Listing you request for does not exits!");
         return res.redirect("/listing");
     }
-    console.log(listingitem);
+    // console.log(listingitem);
     res.render("listinges/show.ejs", { listingitem });
     
 };
@@ -60,7 +60,7 @@ module.exports.updatelisting = async (req,res)=>{
 module.exports.deletelistings = async (req,res)=>{
     let {id} = req.params;
     let deletelisting = await Listing.findByIdAndDelete(id)
-    console.log(deletelisting);
+    // console.log(deletelisting);
     req.flash("sucess","Listing Deleted");
     res.redirect("/listing");
 
